@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSS GAME</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Ribbon Style */
+        #ribbon {
+            width: 100%;
+            background-color: #ff6f61;
+            padding: 20px;
+            color: #fff;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logo Section */
+        #logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #ff6f61;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+        }
+
+        #logo img {
+            width: 100%;
+            height: 100%;
+            margin-top: 0%;
+            object-fit:cover;
+            border-radius: 50%;
+        }
+
+        /* Game Container */
+        #game-container {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 100px;
+        }
+
+        #question {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff4a3d;
+            transform: scale(1.1);
+        }
+
+        #noButton {
+            position: absolute;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 24px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ribbon with heading and logo -->
+    <div id="ribbon">
+        Let's know your mood?
+        <div id="logo">
+            <img src="InShot_20240925_020100251.jpg" alt="Logo">
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container">
+        <div id="question">Do you like me?</div>
+
+        <button id="yesButton" onclick="selectYes()">Yes</button>
+        <button id="noButton" onmouseover="moveNo()">No</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function selectYes() {
+            document.getElementById('result').innerHTML = '😊 Mujhe Pata Tha!';
+        }
+
+        function moveNo() {
+            // Randomly place the "No" button in another location
+            const noButton = document.getElementById('noButton');
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+
+        function selectNo() {
+            document.getElementById('result').innerHTML = '<img src="https://www.kindpng.com/picc/m/105-1057464_cute-sad-face-cartoon-hd-png-download.png" alt="Sad Face">';
+        }
+    </script>
+
+</body>
+</html>
